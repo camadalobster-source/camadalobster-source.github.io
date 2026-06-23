@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>second-brain 知識庫 · 案例 · Henry Chen</title>
+    <meta name="description" content="以 SCHEMA 治理、由 AI 把原始筆記結構化成 wiki 的個人知識庫。" />
+    <style>
+      :root { color-scheme: light dark; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: -apple-system, "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+        line-height: 1.8; color: #1e293b; background: #f6f8fc;
+      }
+      .wrap { max-width: 680px; margin: 0 auto; padding: 56px 24px 96px; }
+      .back { display: inline-block; margin-bottom: 32px; color: #64748b; text-decoration: none; font-size: .9rem; }
+      .back:hover { color: #2563eb; }
+      h1 { font-size: 1.9rem; letter-spacing: -.02em; margin-bottom: 8px; }
+      .tagline { color: #64748b; margin-bottom: 8px; }
+      .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 36px; }
+      .chip { font-size: .78rem; color: #475569; background: #eef2f9; border-radius: 999px; padding: 4px 12px; }
+      h2 { font-size: 1.05rem; margin: 36px 0 10px; color: #334155; }
+      p { margin-bottom: 12px; color: #334155; }
+      ul { margin: 0 0 12px 1.2em; color: #334155; }
+      li { margin-bottom: 6px; }
+      .flow {
+        background: #fff; border: 1px solid #e6ebf3; border-radius: 14px;
+        padding: 18px 20px; margin: 8px 0 12px; font-size: .92rem; color: #475569;
+      }
+      .flow b { color: #1e293b; }
+      footer { margin-top: 48px; color: #94a3b8; font-size: .85rem; }
+      footer a { color: #64748b; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e2e8f0; background: #0b1120; }
+        h1, .flow b { color: #f1f5f9; }
+        p, ul, li, h2 { color: #cbd5e1; }
+        .chip { color: #cbd5e1; background: #1e293b; }
+        .flow { background: #161f33; border-color: #25324a; color: #cbd5e1; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <a class="back" href="../">← 返回</a>
+
+      <h1>second-brain 知識庫</h1>
+      <p class="tagline">用一套 SCHEMA 治理，讓 AI 把零散筆記持續結構化成可檢索的知識庫。</p>
+      <div class="chips">
+        <span class="chip">SCHEMA 治理</span>
+        <span class="chip">raw → wiki</span>
+        <span class="chip">AI 結構化</span>
+        <span class="chip">知識管理</span>
+      </div>
+
+      <h2>問題</h2>
+      <p>
+        收集到的資訊與筆記是零散的「原始素材」，放久了就找不到、也難以複用。
+        缺的不是「存更多」，而是把素材<b>整理成有結構、彼此關聯、能再被用起來</b>的知識。
+      </p>
+
+      <h2>做法</h2>
+      <p>建立一套有明確規範（SCHEMA）的知識庫，讓所有內容遵循同一套結構，並由 AI 執行「原始 → 整理」的轉換：</p>
+      <div class="flow">
+        <b>raw</b>（原始筆記／擷取）
+        &nbsp;→&nbsp; <b>依 SCHEMA 整理</b>（統一格式、抽出重點、建立關聯）
+        &nbsp;→&nbsp; <b>wiki</b>（結構化、可檢索的知識條目）
+      </div>
+
+      <h2>AI 的角色</h2>
+      <ul>
+        <li>讀懂 SCHEMA 規範，把原始筆記<b>轉成符合結構的 wiki 條目</b>。</li>
+        <li><b>建立條目之間的關聯</b>，讓知識成網而非孤點。</li>
+        <li>整理時遵守治理規則，維持整個知識庫的<b>一致性</b>。</li>
+      </ul>
+
+      <h2>成果</h2>
+      <ul>
+        <li>原始素材不再是死檔，而是會持續長大的個人知識網。</li>
+        <li>用統一結構治理，越累積越好查、越好用。</li>
+      </ul>
+
+      <footer>
+        案例 · <a href="../">回工具集</a>
+      </footer>
+    </div>
+  </body>
+</html>

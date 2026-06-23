@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Henry Chen</title>
-    <meta name="description" content="工具集" />
+    <meta name="description" content="AI 工具與應用案例" />
     <style>
       :root { color-scheme: light dark; }
       * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,14 +16,22 @@
           #f6f8fc;
         min-height: 100vh;
       }
-      .wrap { max-width: 860px; margin: 0 auto; padding: 96px 24px 96px; }
-      header { text-align: center; margin-bottom: 56px; }
+      .wrap { max-width: 880px; margin: 0 auto; padding: 92px 24px 96px; }
+      header { text-align: center; margin-bottom: 64px; }
       .mark {
         font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em;
         background: linear-gradient(135deg, #1e3a8a, #3b82f6);
         -webkit-background-clip: text; background-clip: text; color: transparent;
       }
-      header .sub { margin-top: 10px; color: #94a3b8; font-size: .9rem; letter-spacing: .35em; text-transform: uppercase; }
+
+      .section-label {
+        display: flex; align-items: center; gap: 10px;
+        font-size: .8rem; font-weight: 600; letter-spacing: .12em;
+        color: #94a3b8; text-transform: uppercase;
+        margin: 0 4px 18px;
+      }
+      .section-label::after { content: ""; flex: 1; height: 1px; background: #e2e8f0; }
+      section { margin-bottom: 52px; }
 
       .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; }
       .card {
@@ -51,13 +59,20 @@
       .card .go::after { content: " →"; transition: margin-left .18s ease; }
       .card:hover .go::after { margin-left: 4px; }
 
+      /* 案例區：用不同色調的圖示底，與工具區做區隔 */
+      .cases .icon { background: linear-gradient(135deg, #fdf2ff, #f3e8ff); }
+      .cases .card:hover { border-color: #e0c9ff; box-shadow: 0 14px 34px rgba(124,58,237,.12); }
+      .cases .card .go { color: #7c3aed; }
+
       @media (prefers-color-scheme: dark) {
         body { color: #e2e8f0; background: radial-gradient(1200px 600px at 50% -10%, #16244a 0%, rgba(22,36,74,0) 60%), #0b1120; }
         .mark { background: linear-gradient(135deg, #93c5fd, #60a5fa); -webkit-background-clip: text; background-clip: text; }
+        .section-label::after { background: #25324a; }
         .card { background: rgba(30,41,59,.6); border-color: #25324a; }
         .card:hover { border-color: #3b5687; }
         .icon { background: linear-gradient(135deg, #1e293b, #283a5e); }
         .card .role { color: #94a3b8; }
+        .cases .icon { background: linear-gradient(135deg, #2a1e3b, #3a2a5e); }
       }
     </style>
   </head>
@@ -65,30 +80,57 @@
     <div class="wrap">
       <header>
         <div class="mark">Henry Chen</div>
-        <div class="sub">工具集</div>
       </header>
 
-      <main class="grid">
-        <!-- 新工具：複製一張 card 改 href / icon / 名稱 / role 即可 -->
-        <a class="card" href="https://camadalobster-source.github.io/work-hub/">
-          <div class="icon">🗂️</div>
-          <h3>work-hub</h3>
-          <div class="role">工作待辦指揮中心</div>
-          <div class="go">開啟</div>
-        </a>
-        <a class="card" href="https://camadalobster-source.github.io/tools-image/">
-          <div class="icon">🖼️</div>
-          <h3>圖片調整</h3>
-          <div class="role">Gemini 圖片處理</div>
-          <div class="go">開啟</div>
-        </a>
-        <a class="card" href="https://camadalobster-source.github.io/tools/native-ad-customizer.html">
-          <div class="icon">📐</div>
-          <h3>Native Ad 調整器</h3>
-          <div class="role">原生廣告樣式 · 匯出</div>
-          <div class="go">開啟</div>
-        </a>
-      </main>
+      <section>
+        <div class="section-label">🛠 自行開發的 AI 工具</div>
+        <div class="grid">
+          <!-- 新工具：複製一張 card 改 href / icon / 名稱 / role -->
+          <a class="card" href="https://camadalobster-source.github.io/work-hub/">
+            <div class="icon">🗂️</div>
+            <h3>work-hub</h3>
+            <div class="role">工作待辦指揮中心</div>
+            <div class="go">開啟</div>
+          </a>
+          <a class="card" href="https://camadalobster-source.github.io/tools-image/">
+            <div class="icon">🖼️</div>
+            <h3>圖片調整</h3>
+            <div class="role">Gemini 圖片處理</div>
+            <div class="go">開啟</div>
+          </a>
+          <a class="card" href="https://camadalobster-source.github.io/tools/native-ad-customizer.html">
+            <div class="icon">📐</div>
+            <h3>Native Ad 調整器</h3>
+            <div class="role">原生廣告樣式 · 匯出</div>
+            <div class="go">開啟</div>
+          </a>
+        </div>
+      </section>
+
+      <section class="cases">
+        <div class="section-label">💡 AI 應用案例</div>
+        <div class="grid">
+          <!-- 新案例：複製一張 card 改 href / icon / 名稱 / role -->
+          <a class="card" href="./cases/auto-digest.html">
+            <div class="icon">🔄</div>
+            <h3>每日 / 每週自動整理</h3>
+            <div class="role">捕捉 → 分類 → 摘要 自動化</div>
+            <div class="go">查看</div>
+          </a>
+          <a class="card" href="./cases/second-brain.html">
+            <div class="icon">📚</div>
+            <h3>second-brain 知識庫</h3>
+            <div class="role">SCHEMA 治理的個人知識庫</div>
+            <div class="go">查看</div>
+          </a>
+          <a class="card" href="https://camadalobster-source.github.io/ai-hackathon/">
+            <div class="icon">🧠</div>
+            <h3>CLIP 圖像辨識</h3>
+            <div class="role">TVBS AI Hackathon 簡報</div>
+            <div class="go">查看</div>
+          </a>
+        </div>
+      </section>
     </div>
   </body>
 </html>

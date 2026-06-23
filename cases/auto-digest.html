@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>每日 / 每週自動整理 · 案例 · Henry Chen</title>
+    <meta name="description" content="用 LLM 把零散捕捉自動分類、排序、摘要的個人自動化系統。" />
+    <style>
+      :root { color-scheme: light dark; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: -apple-system, "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+        line-height: 1.8; color: #1e293b; background: #f6f8fc;
+      }
+      .wrap { max-width: 680px; margin: 0 auto; padding: 56px 24px 96px; }
+      .back { display: inline-block; margin-bottom: 32px; color: #64748b; text-decoration: none; font-size: .9rem; }
+      .back:hover { color: #2563eb; }
+      h1 { font-size: 1.9rem; letter-spacing: -.02em; margin-bottom: 8px; }
+      .tagline { color: #64748b; margin-bottom: 8px; }
+      .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 36px; }
+      .chip { font-size: .78rem; color: #475569; background: #eef2f9; border-radius: 999px; padding: 4px 12px; }
+      h2 { font-size: 1.05rem; margin: 36px 0 10px; color: #334155; }
+      p { margin-bottom: 12px; color: #334155; }
+      ul { margin: 0 0 12px 1.2em; color: #334155; }
+      li { margin-bottom: 6px; }
+      .flow {
+        background: #fff; border: 1px solid #e6ebf3; border-radius: 14px;
+        padding: 18px 20px; margin: 8px 0 12px; font-size: .92rem; color: #475569;
+      }
+      .flow b { color: #1e293b; }
+      footer { margin-top: 48px; color: #94a3b8; font-size: .85rem; }
+      footer a { color: #64748b; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e2e8f0; background: #0b1120; }
+        h1, .flow b { color: #f1f5f9; }
+        p, ul, li, h2 { color: #cbd5e1; }
+        .chip { color: #cbd5e1; background: #1e293b; }
+        .flow { background: #161f33; border-color: #25324a; color: #cbd5e1; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <a class="back" href="../">← 返回</a>
+
+      <h1>每日 / 每週自動整理</h1>
+      <p class="tagline">把零散的捕捉，交給 AI 自動分類、排序、摘要 —— 不必自己選、不會漏。</p>
+      <div class="chips">
+        <span class="chip">LLM 自動分類</span>
+        <span class="chip">重要性推斷</span>
+        <span class="chip">排程自動化</span>
+        <span class="chip">個人生產力</span>
+      </div>
+
+      <h2>問題</h2>
+      <p>
+        待辦、想法、要讀的東西分散在各處，「記下來」本身就有摩擦；更大的痛點是 —— 當每件事都覺得重要時，
+        反而不知道該做哪一件，清單越長越不想看，最後變成一堆死資料。
+      </p>
+
+      <h2>做法</h2>
+      <p>用一條「捕捉 → 分流 → 整理」的流水線，把「選擇」這件事從人身上拿掉：</p>
+      <div class="flow">
+        <b>捕捉</b>：用手機一鍵把任何東西丟進統一收件匣（不分類、零摩擦）
+        &nbsp;→&nbsp; <b>分流</b>：AI 判斷歸屬、推斷重要性
+        &nbsp;→&nbsp; <b>整理</b>：每天輕量提醒「今天做什麼」、每週深度綜整成洞見
+      </div>
+
+      <h2>AI 的角色</h2>
+      <ul>
+        <li>依內容<b>自動判斷歸屬</b>（要讀／要做／點子／生活），不需手動歸類。</li>
+        <li>用無須人工輸入的訊號<b>推斷重要性與順序</b>（截止、快速完成、能解鎖其他事…），而不是逼使用者「選最重要的」。</li>
+        <li>把選定的事<b>拆成第一步</b>，並產生每日摘要與下一步建議。</li>
+        <li>排程<b>全自動執行</b>，結果直接送到手機。</li>
+      </ul>
+
+      <h2>成果</h2>
+      <ul>
+        <li>每天 / 每週自動收到整理，不再需要自己面對一整面雜亂清單。</li>
+        <li>待辦從「雜亂一堆」收斂成「少數可行動」。</li>
+        <li>把「決策癱瘓」變成「現在就做這一件」。</li>
+      </ul>
+
+      <footer>
+        案例 · <a href="../">回工具集</a>
+      </footer>
+    </div>
+  </body>
+</html>
