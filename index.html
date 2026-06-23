@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Henry Chen · 作品集</title>
+    <meta name="description" content="用規格先行 + AI 輔助開發做實用小工具與個人自動化。" />
+    <style>
+      :root { color-scheme: light dark; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+        line-height: 1.7;
+        color: #1e293b;
+        background: #f8fafc;
+      }
+      .wrap { max-width: 720px; margin: 0 auto; padding: 64px 24px 80px; }
+      header h1 { font-size: 2rem; margin: 0 0 8px; }
+      header p { color: #64748b; margin: 0 0 8px; }
+      h2 { font-size: 1.1rem; margin: 48px 0 16px; color: #334155; }
+      .card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        border: 1px solid #e2e8f0;
+        background: #fff;
+        border-radius: 14px;
+        padding: 20px 22px;
+        margin-bottom: 16px;
+        transition: border-color .15s, transform .15s, box-shadow .15s;
+      }
+      .card:hover { border-color: #3b82f6; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(2,8,23,.06); }
+      .card h3 { margin: 0 0 6px; font-size: 1.15rem; }
+      .card .tag { font-weight: 400; color: #94a3b8; font-size: .95rem; }
+      .card p { margin: 0 0 12px; color: #475569; font-size: .95rem; }
+      .links { display: flex; gap: 14px; flex-wrap: wrap; font-size: .85rem; }
+      .links a { color: #2563eb; text-decoration: none; }
+      .links a:hover { text-decoration: underline; }
+      .stack { color: #64748b; font-size: .8rem; margin-top: 10px; }
+      footer { margin-top: 56px; color: #94a3b8; font-size: .85rem; }
+      footer a { color: #64748b; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e2e8f0; background: #0f172a; }
+        header p { color: #94a3b8; }
+        h2 { color: #cbd5e1; }
+        .card { background: #1e293b; border-color: #334155; }
+        .card p { color: #cbd5e1; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Henry Chen</h1>
+        <p>用「規格先行（spec-driven）＋ AI 輔助開發」做實用的小工具與個人自動化。</p>
+        <p style="font-size:.9rem">每個工具都是獨立 repo，可直接線上試用。</p>
+      </header>
+
+      <h2>🛠 作品</h2>
+
+      <!-- 之後新工具：複製一個 .card 區塊改內容即可 -->
+      <a class="card" href="https://camadalobster-source.github.io/work-hub/">
+        <h3>work-hub <span class="tag">· 工作指揮中心</span></h3>
+        <p>個人工作待辦的單頁工具：記事、設「處理日／提醒日」、拖曳排序、勾選完成；逾期或該提醒的事，一開頁面就自動置頂提醒。</p>
+        <div class="links">
+          <a href="https://camadalobster-source.github.io/work-hub/">🔗 線上 demo</a>
+          <a href="https://github.com/camadalobster-source/work-hub">💻 原始碼</a>
+        </div>
+        <div class="stack">React · TypeScript · Tailwind · Vite · 純前端（localStorage，資料層可接後端）· OpenSpec spec-driven</div>
+      </a>
+
+      <h2>🧭 開發方式</h2>
+      <p style="color:#64748b;font-size:.95rem">
+        一個工具 = 一個獨立 repo，方便獨立呈現與部署；規格先行（OpenSpec）：proposal → specs → tasks → 實作 → archive。
+      </p>
+
+      <footer>
+        更多工具陸續加入中 · <a href="https://github.com/camadalobster-source">GitHub</a>
+      </footer>
+    </div>
+  </body>
+</html>
