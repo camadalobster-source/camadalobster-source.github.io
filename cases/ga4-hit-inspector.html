@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GA4 事件偵測 · 案例 · Henry Chen</title>
+    <meta name="description" content="一個 Chrome 側邊欄外掛：看一頁送出了哪些 GA4 事件、有沒有多送或漏送、是哪個管道送的。" />
+    <style>
+      :root { color-scheme: light dark; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        font-family: -apple-system, "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+        line-height: 1.8; color: #1e293b; background: #f6f8fc;
+      }
+      .wrap { max-width: 680px; margin: 0 auto; padding: 56px 24px 96px; }
+      .back { display: inline-block; margin-bottom: 32px; color: #64748b; text-decoration: none; font-size: .9rem; }
+      .back:hover { color: #2563eb; }
+      h1 { font-size: 1.9rem; letter-spacing: -.02em; margin-bottom: 8px; }
+      .tagline { color: #64748b; margin-bottom: 8px; }
+      .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 36px; }
+      .chip { font-size: .78rem; color: #475569; background: #eef2f9; border-radius: 999px; padding: 4px 12px; }
+      h2 { font-size: 1.05rem; margin: 36px 0 10px; color: #334155; }
+      p { margin-bottom: 12px; color: #334155; }
+      ul { margin: 0 0 12px 1.2em; color: #334155; }
+      li { margin-bottom: 6px; }
+      .flow {
+        background: #fff; border: 1px solid #e6ebf3; border-radius: 14px;
+        padding: 18px 20px; margin: 8px 0 12px; font-size: .92rem; color: #475569;
+      }
+      .flow b { color: #1e293b; }
+      footer { margin-top: 48px; color: #94a3b8; font-size: .85rem; }
+      footer a { color: #64748b; }
+      @media (prefers-color-scheme: dark) {
+        body { color: #e2e8f0; background: #0b1120; }
+        h1, .flow b { color: #f1f5f9; }
+        p, ul, li, h2 { color: #cbd5e1; }
+        .chip { color: #cbd5e1; background: #1e293b; }
+        .flow { background: #161f33; border-color: #25324a; color: #cbd5e1; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <a class="back" href="../">← 返回</a>
+
+      <h1>GA4 事件偵測</h1>
+      <p class="tagline">打開側邊欄就知道：這一頁送了哪些 GA4 事件、有沒有多送或漏送、是誰送的。</p>
+      <div class="chips">
+        <span class="chip">Chrome 擴充功能</span>
+        <span class="chip">GA4 埋點驗收</span>
+        <span class="chip">GTM</span>
+        <span class="chip">AI 協作開發</span>
+      </div>
+
+      <h2>問題</h2>
+      <p>
+        一個網頁的 GA4 事件，常常同時由好幾條管道送出：好幾個 GTM 容器、直接寫在頁面裡的 gtag、外包廠商的程式。
+        現有的除錯工具看得到「送了什麼」，卻看不出「是誰送的」。所以流量數字對不上時，
+        要一個個容器打開預覽模式去比對，才找得到是哪一條多送了一筆。
+      </p>
+
+      <h2>做法</h2>
+      <p>做一個只觀察、不改動頁面的側邊欄，把每一筆事件拆解成「管道 → 送到哪個評估 ID → 什麼事件」：</p>
+      <div class="flow">
+        <b>記錄</b>：只記點過外掛圖示的分頁，資料只存在本機
+        &nbsp;→&nbsp; <b>歸屬</b>：從請求內容、GTM 容器設定、頁面呼叫位置，判斷是哪個管道送的，並標出可信度
+        &nbsp;→&nbsp; <b>檢查</b>：每次載入只能送一次的事件被送了兩次、該出現卻沒出現、推送後沒送出，直接亮燈並寫出是哪些管道造成的
+      </div>
+      <p>任何網站都能用；需要額外規則的網站（例如公司的埋點必填參數規範），可以在側邊欄按開關，每個網站分開設定。</p>
+
+      <h2>AI 的角色</h2>
+      <ul>
+        <li>需求、判斷規則和驗收案例由我寫成開發指引；<b>程式由 AI 依指引實作</b>。</li>
+        <li>AI 用自動化瀏覽器<b>自己跑驗收</b>：本機測試頁模擬多送、漏送、延遲送出等情境，正式網站只讀不送。</li>
+        <li>每輪由我實際試用，提出看不懂或不好用的地方，AI 改完後<b>重跑全部測試</b>才交回給我。</li>
+        <li>實作途中發現和指引假設不同的事（例如 gtag 會把事件延遲幾秒再一起送），AI 回報給我，<b>由我決定</b>怎麼改。</li>
+      </ul>
+
+      <h2>成果</h2>
+      <ul>
+        <li>在一個活動頁上抓到 page_view 被兩個 GTM 容器各送一次，而且直接指出是哪兩個容器。</li>
+        <li>不必一個個打開 GTM 預覽，打開側邊欄就看得到每個事件是從哪條管道送出的。</li>
+        <li>11 個驗收案例加 20 項介面檢查全部自動化，每次改版都重跑一遍。</li>
+      </ul>
+
+      <footer>
+        案例 · <a href="../">回工具集</a>
+      </footer>
+    </div>
+  </body>
+</html>
